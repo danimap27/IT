@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%!int NOTA_MIN = 4;%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,13 +45,55 @@
                 out.write("<p>En caso negativo, indicar qué nota espera obtener en la asignatura: " + request.getParameter("it_previo_no") + "</p>");
             }
             float sobre10 = (Float.parseFloat(request.getParameter("b1")) + Float.parseFloat(request.getParameter("b2")) + Float.parseFloat(request.getParameter("b3"))) / 3;
-            float b1 = Float.parseFloat(request.getParameter("b1")) * (float) 0.3;
-            float b2 = Float.parseFloat(request.getParameter("b2")) * (float) 0.3;
-            float b3 = Float.parseFloat(request.getParameter("b3")) * (float) 0.2;
-            float sobre8 = b1 + b2 + b3;
+            float b1 = Float.parseFloat(request.getParameter("b1")) ;
+            float b2 = Float.parseFloat(request.getParameter("b2"));
+            float b3 = Float.parseFloat(request.getParameter("b3"));
+            float sobre8 = b1* (float) 0.3 + b2 * (float) 0.3 + b3 * (float) 0.2;
             float trabajo = Float.parseFloat(request.getParameter("trabajo")) * (float) 0.2;
             float notaFinal = sobre8 + trabajo;
+            
+            // Inicializar el string el cual mandaremos como carta
             String carta = "Hola " + request.getParameter("nombre");
+            
+            // Vector para los bloques que hay que recuperar
+            int [] v = new int[4];
+            v[0] = 0;
+            v[1] = 0;
+            v[2] = 0;
+            v[3] = 0;
+            boolean minimo = true;
+            if (NOTA_MIN < b1){
+                v[0] = 1;
+                minimo = false;
+            }
+            if (NOTA_MIN < b2){
+                v[1] = 1; 
+                minimo = false;
+            }            
+            if (NOTA_MIN < b3){
+                v[2] = 1;
+                minimo = false;
+            }
+            if (NOTA_MIN < sobre8){
+                v[3] = 1;
+                minimo = false;
+            }
+            if (minimo && notaFinal >= 5){
+                carta += " has aprobado la asignatura Integracion de tecnologias con un "+ notaFinal+ ". Enhorabuena!!";
+            }else if (minimo){
+                carta += " has suspendido la asignatura Integracion de tecnologias con un " + notaFinal + " aunque no hay ningun bloque que tengas menos del minimo";
+                
+            }else {
+                carta += " has suspendido la asignatura Integracion de tecnologias ya que no has llegado al minimo en:";
+                for(int i = 0; i < 3; i++){
+                    if(v[i] == 1)
+                        carta += " Bloque " + i;
+                }
+                if(v[3] == 1){
+                    carta += " Minimo 4 sobre 8 en los bloques";
+                }
+            }
+            
         %>
         <h2>Tabla de cuanto vale cada parte</h2>
         <table>

@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%=request.getParameter("carta")%>
+        <%out.write(request.getParameter("carta"));%>
     </body>
 </html>
