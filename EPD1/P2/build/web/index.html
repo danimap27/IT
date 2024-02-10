@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>EPD1 P2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1><b>Rellene el siguiente formulario</b></h1>
+        <form action="procesar_formulario.jsp" method="post">
+            <label>Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+            <label>Apellidos:</label>
+            <input type="text" id="apellido" name="apellido" required>
+            <br>        
+            <label>Email:</label>
+            <input type="text" id="email" name="email" required>
+            <br>        
+            <p>¿Ha estudiado antes IT?</p>
+            <input type="radio" id="si" name="it_previo" value="si">
+            <label>Sí</label>
+            <input type="radio" id="no" name="it_previo" value="no" checked>
+            <label>No</label>
+            <br>
+            <label for="it_previo_si">En caso afirmativo, indicar el o los bloques que encontró más difíciles: </label>
+            <input type="text" name="it_previo_si">
+            <br>
+            <label for="it_previo_no">En caso negativo, indicar qué nota espera obtener en la asignatura: </label>
+            <input type="text" name="it_previo_no">
+            <br>
+            <label>Nota que espera obtener en el examen del bloque 1 (sobre 10): </label>
+            <input type="number" name="b1" min="0" max="10" required>
+            <br>
+            <label>Nota que espera obtener en el examen del bloque 1 (sobre 10): </label>
+            <input type="number" name="b2" min="0" max="10" required>
+            <br>
+            <label>Nota que espera obtener en el examen del bloque 1 (sobre 10): </label>
+            <input type="number" name="b3" min="0" max="10" required>
+            <br>
+            <label>Nota que espera obtener en el proyecto (sobre 10): </label>
+            <input type="number" name="trabajo" min="0" max="10" required>
+            <br>
+            <input type="submit" value="Enviar">
+
+        </form>
+    </body>
+</html>
