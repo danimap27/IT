@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>EPD1 P1</title>
+        <title>EPD1 P2</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -22,14 +22,26 @@
             <input type="radio" id="no" name="it_previo" value="no" checked>
             <label>No</label>
             <br>
-            <label>En caso afirmativo, indicar el o los bloques que encontró más difíciles: </label>
+            <label for="it_previo_si">En caso afirmativo, indicar el o los bloques que encontró más difíciles: </label>
             <input type="text" name="it_previo_si">
             <br>
-            <label>En caso negativo, indicar qué nota espera obtener en la asignatura: </label>
+            <label for="it_previo_no">En caso negativo, indicar qué nota espera obtener en la asignatura: </label>
             <input type="text" name="it_previo_no">
             <br>
+            <label>Nota que espera obtener en el examen del bloque 1 (sobre 10): </label>
+            <input type="number" name="b1" min="0" max="10" required>
+            <br>
+            <label>Nota que espera obtener en el examen del bloque 1 (sobre 10): </label>
+            <input type="number" name="b2" min="0" max="10" required>
+            <br>
+            <label>Nota que espera obtener en el examen del bloque 1 (sobre 10): </label>
+            <input type="number" name="b3" min="0" max="10" required>
+            <br>
+            <label>Nota que espera obtener en el proyecto (sobre 10): </label>
+            <input type="number" name="trabajo" min="0" max="10" required>
+            <br>
             <input type="submit" value="Enviar">
-            
+
         </form>
     </body>
 </html>
