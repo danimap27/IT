@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Rellene el siguiente formulario</h1>
+        <form action="procesar_formulario.jsp" method="post">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+            <br>
+            <label>Apellidos:</label>
+            <input type="text" name="apellidos" required>
+            <br>
+            <label>Estado civil:</label>
+            <br>
+            <input type="radio" name="eCivil" value="soltero" checked>
+            <label>Soltero</label>
+            <input type="radio" name="eCivil" value="casado">
+            <label>Casado</label>
+            <input type="radio" name="eCivil" value="otros">
+            <label>Otros</label>
+            <br>
+            <label>¿Trabaja?</label>
+            <input type="text" name="trabaja" required>
+            <br>
+            <label>Ingresos (anual en $)</label>
+            <input type="number" min=0 name="ingresos" required>
+            <br>
+            <label>Gastos (anual en $)</label>
+            <input type="number" min=0 name="gastos" required>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+
+
+    </body>
+</html>
