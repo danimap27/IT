@@ -194,7 +194,7 @@
         </table>
         <h2>Generar carta</h2>
         <form action="carta.jsp" method="post">
-            <input type="hidden" name="carta" value=<%=carta%>>
+            <input type="hidden" name="carta" value=<%carta;%>>
             <input type="submit" value="Crear">
         </form>
     </body>
