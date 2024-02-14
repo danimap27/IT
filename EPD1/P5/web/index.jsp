@@ -12,22 +12,32 @@
         <title>EPD1 P5</title>
     </head>
     <body>
+        <%
+            String nombre = " ";
+            nombre = request.getParameter("nombre");
+            String sede_social = request.getParameter("sede_social");
+            String telefono = request.getParameter("telefono");
+
+
+        %>
         <h1>Alta de una empresa</h1>
         <form action="procesar_alta.jsp" method="post">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" value="<%=nombre%>" required>
             <br>
             <label for="sede_social">Sede social:</label>
-            <input type="text" id="sede_social" name="sede_social" required>
+            <input type="text" id="sede_social" name="sede_social" value="<%=sede_social%>" required>
             <br>
             <label for="telefono">Teléfono:</label>
-            <input type="tel" name="telefono" required>
+            <input type="tel" name="telefono" value="<%=telefono%>" required>
             <br>
-            <input type="radio" name="capital_extranjero" value="si">
-            <label for="capital_extranjero_si">Sí</label>
-            <br>
-            <input type="radio" name="capital_extranjero" value="no" checked>
-            <label for="capital_extranjero_no">No</label>
+            <form action="index.jsp" method="post">
+                <input type="submit" name="capital_extranjero" value="si" checked>
+                <label for="capital_extranjero_si">Sí</label>
+                <br>
+                <input type="submit" name="capital_extranjero" value="no" >
+                <label for="capital_extranjero_no">No</label>
+            </form>
             <br>
             <br>        
 
