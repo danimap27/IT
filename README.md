@@ -239,6 +239,10 @@ salida
 ## TEMA 1.3
 ### Ciclo de vida de las páginas JSP
 * Inicialización: Construcción e inicialización de variables del Servlet que se construye en base a la página JSP
+* Ejecución: Contrucción y carga de todos los elementos de la respuesta que va a dar la página JSP al cliente.
+* Destrucción: Código que se ejecutará justo antes de la destrucción del Servlet.
+
+Ejemplo:
 ```java
     <%@ page language="java" contentType="text/html" %>
     <%@ page import="java.util.Date" %>
@@ -254,5 +258,22 @@ salida
         }
     %>
 ```
-* Ejecución: Contrucción y carga de todos los elementos de la respuesta que va a dar la página JSP al cliente.
-* Destrucción: Código que se ejecutará justo antes de la destrucción del Servlet
+El ciclo de vida puede verse alterado:
+* Cuando se produce una excepción que deja el servidor inservible
+* Cuando se pasa el control del procesamiento de la solicitud a otra "entidad"
+
+### Arquitectura MVC
+* Modelo: Encapsula la lógica de negocio y datos.
+* Vista: Se encarga de la presentación.
+* Controlador: ENcapsula la lógica de la aplicacion.
+
+### Tipos de arquitecturas
+* 1 capa: Página-céntrica
+    * JSP: Controlador, vista y modelo.
+* 2 capas:
+    * JavaBean: Modelo
+    * JSP: Controlador y vista
+* 3 capas:
+    * JavaBean: Modelo
+    * JSP: vista
+    * Servlet: controlador
