@@ -235,3 +235,24 @@ salida
 * jsp:useBean: Uso de beans en las páginas JSP.
 * jsp:setProperty: Establecimiento de una propiedad
 * jsp:getProperty: Lectura de una propiedad
+
+## TEMA 1.3
+### Ciclo de vida de las páginas JSP
+* Inicialización: Construcción e inicialización de variables del Servlet que se construye en base a la página JSP
+```java
+    <%@ page language="java" contentType="text/html" %>
+    <%@ page import="java.util.Date" %>
+    <%! int globalCounter = 0;
+        java.util.Date startDate;
+        public void jspInit( ) {
+            startDate = new java.util.Date( );
+        }
+
+        public void jspDestroy( ) {
+            ServletContext context = getServletConfig().getServletContext( );
+            context.log("test.jsp was visited " + globalCounter + " times between " + startDate + " and " + (new Date( )));
+        }
+    %>
+```
+* Ejecución: Contrucción y carga de todos los elementos de la respuesta que va a dar la página JSP al cliente.
+* Destrucción: Código que se ejecutará justo antes de la destrucción del Servlet
