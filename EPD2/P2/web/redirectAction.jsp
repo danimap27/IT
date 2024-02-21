@@ -13,10 +13,11 @@
     <body>
         <%
             String option = request.getParameter("option");
-            String redirectPage = "redirectedPage.jsp";
-            request.setAttribute("option", option);
-            response.sendRedirect(redirectPage);
         %>
+            <jsp:forward page="redirectedPage.jsp">
+                <jsp:param name="option" value="<%=option%>"/>
+            </jsp:forward>
+       
     </body>
 </html>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
         <%
-            String option = (String) request.getAttribute("option");
+            String option = (String) request.getParameter("option");
             String url = "";
             if (option != null) {
                 switch (option) {

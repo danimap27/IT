@@ -15,7 +15,7 @@
 
     <h1>Noticias</h1>
 
-    <form action="noticias.jsp" method="post">
+    <form action="index.jsp" method="post">
         <% 
             String[] noticias = {"noticia1.txt", "noticia2.txt", "noticia3.txt"};
             for (int i = 0; i < noticias.length; i++) {
