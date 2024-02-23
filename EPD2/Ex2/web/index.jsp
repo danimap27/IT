@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>IT - EPD02 - Experimento02</title>
+        <title>EPD02 Ex2</title>
     </head>
     <body>
         <h1>IT - EPD02 - Experimento02</h1>        

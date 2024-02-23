@@ -20,8 +20,6 @@
         String formattedCreationTime = dateFormat.format(creationTime);
 
         long durationInSeconds = duration / 1000;
-
-        // Imprimir información de la sesión
         out.println("<p>ID de la Sesión: " + sessionId + "</p>");
         out.println("<p>Fecha de Creación: " + formattedCreationTime + "</p>");
         out.println("<p>Duración de la Sesión: " + durationInSeconds + " segundos</p>");

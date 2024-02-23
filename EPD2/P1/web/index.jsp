@@ -16,19 +16,19 @@
     <h1>Noticias</h1>
 
     <form action="index.jsp" method="post">
+        <%--Pedir tutoria--%>
         <% 
             String[] noticias = {"noticia1.txt", "noticia2.txt", "noticia3.txt"};
             for (int i = 0; i < noticias.length; i++) {
                 String noticia = noticias[i];
                 String mostrarOcultarParam = "ocultarMostrar" + (i + 1);
                 String mostrarOcultarValue = (request.getParameter(mostrarOcultarParam) != null) ? request.getParameter(mostrarOcultarParam) : "mostrar";
-                String contenido = new String(Files.readAllBytes(Paths.get(noticia)), StandardCharsets.UTF_8);
 
         %>
                 <div>
                     <h2>Noticia <%= (i + 1) %></h2>
                     <p>
-                        <%=contenido%>
+                        <jsp:include page="<%=noticia%>"/>
                     </p>
                     <input type="radio" name="<%= mostrarOcultarParam %>" value="mostrar" <%= mostrarOcultarValue.equals("mostrar") ? "checked" : "" %>> Mostrar
                     <input type="radio" name="<%= mostrarOcultarParam %>" value="ocultar" <%= mostrarOcultarValue.equals("ocultar") ? "checked" : "" %>> Ocultar
