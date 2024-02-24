@@ -12,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Lista de Vehículos Registrados</title>
+    <title>EPD3 Ej1</title>
 </head>
 <body>
     <h2>Lista de Vehículos Registrados</h2>
