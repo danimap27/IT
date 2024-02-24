@@ -270,10 +270,19 @@ El ciclo de vida puede verse alterado:
 ### Tipos de arquitecturas
 * 1 capa: Página-céntrica
     * JSP: Controlador, vista y modelo.
+        * Ventajas: Fácil de implementar.
+        * Desventajas: Tienes que arreglar todo por copia y pega no con bloques, inmantenible y dificil para los diseñadores.
+        * Apropiada para aplicaciones simples.
 * 2 capas:
     * JavaBean: Modelo
     * JSP: Controlador y vista
+        * Ventajas: Simple de implementar y permite la reutilización del modelo.
+        * Desventajas: Las mismas que las de 1 capa.
+        * Apropiadas para aplicaciones pequeñas y medianas.
 * 3 capas:
     * JavaBean: Modelo
     * JSP: vista
     * Servlet: controlador
+        * Ventajas: Reusabilidad, mantenimiento y abstración.
+        * Desventajas: Inversión inicial muy elevada.
+        * Apropiadas para aplicaciones medianas y grandes.
