@@ -39,7 +39,7 @@
         <p>Nombre: <%=nombre%></p>
         <p>Apellidos: <%=apellidos%></p>
         <p>Sexo: <%=sexo%></p>
-        <form action="" method="post">
+        <form action="logout.jsp" method="post">
             <input type="submit" value="Cerrar Sesión">
         </form>
     </body>
