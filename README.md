@@ -235,3 +235,54 @@ salida
 * jsp:useBean: Uso de beans en las páginas JSP.
 * jsp:setProperty: Establecimiento de una propiedad
 * jsp:getProperty: Lectura de una propiedad
+
+## TEMA 1.3
+### Ciclo de vida de las páginas JSP
+* Inicialización: Construcción e inicialización de variables del Servlet que se construye en base a la página JSP
+* Ejecución: Contrucción y carga de todos los elementos de la respuesta que va a dar la página JSP al cliente.
+* Destrucción: Código que se ejecutará justo antes de la destrucción del Servlet.
+
+Ejemplo:
+```java
+    <%@ page language="java" contentType="text/html" %>
+    <%@ page import="java.util.Date" %>
+    <%! int globalCounter = 0;
+        java.util.Date startDate;
+        public void jspInit( ) {
+            startDate = new java.util.Date( );
+        }
+
+        public void jspDestroy( ) {
+            ServletContext context = getServletConfig().getServletContext( );
+            context.log("test.jsp was visited " + globalCounter + " times between " + startDate + " and " + (new Date( )));
+        }
+    %>
+```
+El ciclo de vida puede verse alterado:
+* Cuando se produce una excepción que deja el servidor inservible
+* Cuando se pasa el control del procesamiento de la solicitud a otra "entidad"
+
+### Arquitectura MVC
+* Modelo: Encapsula la lógica de negocio y datos.
+* Vista: Se encarga de la presentación.
+* Controlador: ENcapsula la lógica de la aplicacion.
+
+### Tipos de arquitecturas
+* 1 capa: Página-céntrica
+    * JSP: Controlador, vista y modelo.
+        * Ventajas: Fácil de implementar.
+        * Desventajas: Tienes que arreglar todo por copia y pega no con bloques, inmantenible y dificil para los diseñadores.
+        * Apropiada para aplicaciones simples.
+* 2 capas:
+    * JavaBean: Modelo
+    * JSP: Controlador y vista
+        * Ventajas: Simple de implementar y permite la reutilización del modelo.
+        * Desventajas: Las mismas que las de 1 capa.
+        * Apropiadas para aplicaciones pequeñas y medianas.
+* 3 capas:
+    * JavaBean: Modelo
+    * JSP: vista
+    * Servlet: controlador
+        * Ventajas: Reusabilidad, mantenimiento y abstración.
+        * Desventajas: Inversión inicial muy elevada.
+        * Apropiadas para aplicaciones medianas y grandes.
