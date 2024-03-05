@@ -23,7 +23,6 @@
                 <th>Tiempo permitido</th>
             </tr>
             <%
-                // Definición de la clase Coche
                 class Coche {
 
                     private String matricula;
