@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-mar-2024 16:38:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Libreria.Libro" table="libro" catalog="almacen" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="autor" type="string">
+            <column name="autor" length="100" not-null="true" />
+        </property>
+        <property name="titulo" type="string">
+            <column name="titulo" length="100" not-null="true" />
+        </property>
+        <property name="precio" type="float">
+            <column name="precio" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="isbn" type="int">
+            <column name="isbn" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
