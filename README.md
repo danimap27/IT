@@ -286,3 +286,115 @@ El ciclo de vida puede verse alterado:
         * Ventajas: Reusabilidad, mantenimiento y abstración.
         * Desventajas: Inversión inicial muy elevada.
         * Apropiadas para aplicaciones medianas y grandes.
+
+ ## TEMA 1.4
+
+**Carga de JSTL:**
+
+* Incluir la directiva `taglib`:
+```jsp
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+```
+* Prefijos y URIs por defecto:
+
+| Prefijo | URI | Descripción |
+|---|---|---|
+| c | [http://java.sun.com/jsp/jstl/core](http://java.sun.com/jsp/jstl/core) | Core |
+| x | [http://java.sun.com/jsp/jstl/xml](http://java.sun.com/jsp/jstl/xml) | XML Processing |
+| fmt | [http://java.sun.com/jsp/jstl/fmt](http://java.sun.com/jsp/jstl/fmt) | I18N & Formatting |
+| sql | [http://java.sun.com/jsp/jstl/sql](http://java.sun.com/jsp/jstl/sql) | Database Access |
+| fn | [http://java.sun.com/jsp/jstl/functions](http://java.sun.com/jsp/jstl/functions) | Functions |
+
+
+**El lenguaje de Expresiones EL:**
+
+* Permite acceder a datos y establecer condiciones con una sintaxis sencilla.
+* Inspirado en JavaScript.
+* Las expresiones se marcan con `${ … }`.
+
+**Acceso a propiedades de objetos y JavaBeans:**
+
+* Notación válida:
+    * `${myObj.myProperty}`
+    * `${myObj['myProperty']}`
+    * `${myObj[varWithTheName]}`
+
+**Operadores EL:**
+
+| Operador | Descripción |
+|---|---|
+| . | Accede a una propiedad |
+| [] | Accede a un elemento de un array/lista |
+| () | Agrupa una subexpression |
+| + | Suma |
+| - | Resta o negación de un número |
+| * | Multiplicación |
+| / | División |
+| % | Módulo (resto) |
+| == | Comprueba igualdad |
+| != | Comprueba desigualdad |
+| < | Comprueba menor que |
+| > | Comprueba mayor que |
+| <= | Comprueba menor o igual que |
+| >= | Comprueba mayor o igual que |
+| && | Comprueba AND lógico |
+| || | Comprueba OR lógico |
+| ! | Complemento binario booleano |
+| empty | Comprueba un valor vacío (null, string vacío, o una colección vacía) |
+
+**Variables implícitas EL:**
+
+| Variable | Descripción |
+|---|---|
+| param | Una collection de todos los parámetros de la solicitud como un sólo valor string para cada parámetro. |
+| paramValues | Una collection de todos los valores de los parámetros de la solicitud como un array de valores string por cada parámetro. (Valores múltiples por parámetro) |
+| header | Una collection de todas las cabeceras de solicitud como un sólo valor string por cada cabecera. |
+| headerValues | Una collection de todos los valores de cabecera de la solicitud como un array de valores string por cada cabecera. (Valores múltiples por cabecera) |
+| cookie | Una collection con todas las cookies de la solicitud en un sólo ejemplar de javax.servlet.http.Cookie por cada cookie. |
+| initParams | Una collection de todos los parámetros de inicialización de la aplicación en un sólo valor string por cada parámetro. |
+| pageContext | Un ejemplar de la clase javax.servlet.jspPageContext. |
+| pageScope | Acceso a session, request, etc. |
+| requestScope |  |
+| sessionScope |  |
+| applicationScope |  |
+
+**Ejemplos:**
+
+* `${param.listType}`
+* `${header['User-Agent']}`
+
+**Literales en EL:**
+
+| Tipo de Literal | Descripción |
+|---|---|
+| String | Encerrado con comillas simples o dobles. |
+| Integer | Un signo opcional (+ o -) seguido por digitos entre 0 y 9. |
+| Floating | Lo mismo que un literal entero, excepto que usa un punto como separador de la parte fraccional y que se puede especificar un exponente con e o E, seguido por un literal entero. |
+| Boolean | true o false. |
+| Null | null. |
+
+**Limitación del ámbito de búsqueda de una variable:**
+
+* Cualquiera: `${customer}`
+* Página: `${pageScope.customer}`
+* Petición: `${requestScope.customer}`
+* Sesión: `${sessionScope.customer}`
+* Aplicación: `${applicationScope.customer}`
+
+**JSTL Core:**
+
+* **Procesamiento condicional:**
+
+```jsp
+<c:if test="${param.age >= 18}">
+    Welcome, ${param.name}.
+</c:if>
+```
+
+* **Iteración:**
+
+```jsp
+<c:forEach var="item" items="${list}">
+    ${item}
+</c:forEach>
+
